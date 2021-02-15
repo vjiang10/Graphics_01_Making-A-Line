@@ -74,5 +74,19 @@ int main() {
 
   // line curve 2
   screen s2;
+  clear_screen(s2);
   color c2;
+  c2.blue = 255;
+  c2.red = 100;
+  c2.green = 0;
+  // corner 1 (upper-left)
+  line_curve_2(0,500,s2,c2);
+  // corner 2 (upper-right)
+  line_curve_2(500,500,s2,c2);
+  // corner 3 (lower-right)
+  line_curve_2(500,0,s2,c2);
+  // corner 4 (lower-left)
+  line_curve_2(0,0,s2,c2);
+
+  save_extension(s2, "line_curve_2.png");
 }

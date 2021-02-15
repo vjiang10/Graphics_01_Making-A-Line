@@ -80,4 +80,16 @@ void line_curve_1(int x0, int y0, int dX, int dY, screen s, color c) {
     }
 }
 
-
+// line_curve_2
+void line_curve_2(int x0, int y0, screen s, color c) {
+    int dX = x0 - 250; int dY = y0 -250;
+    int x1 = 250 + dY; int y1 = 250 - dX;
+    c.green += 5;
+    draw_line(x0, y0, x1, y1, s, c);
+    int x_new = x0 - 17*(x0-x1)/20;
+    int y_new = y0 - 17*(y0-y1)/20;
+    // terminating case
+    if (10 > (x0-x1)*(x0-x1)+(y0-y1)*(y0-y1)) return;
+    // recursive case
+    line_curve_2(x_new, y_new, s, c);
+}
